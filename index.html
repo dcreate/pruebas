@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6c7e7">
+    <title>¡Mi cumpleaños!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- INVITACIÓN: permanece detrás de las cortinas -->
+    <main id="invitacion">
+        <section class="tarjeta">
+            <div class="decoracion decoracion-arriba">🌈 ✨ 🐾 ✨ 🌈</div>
+
+            <div class="casita">🏠</div>
+
+            <p class="etiqueta">¡Estás invitado a una fiesta mágica!</p>
+
+            <h1>¡Vamos a celebrar!</h1>
+
+            <div class="numero-edad">
+                <span class="numero">4</span>
+                <span class="texto-edad">añitos</span>
+            </div>
+
+            <p class="nombre" id="nombre">VALENTINA</p>
+            <p class="mensaje">
+                Prepárate para jugar, reír y vivir una aventura llena de
+                colores, gatitos y mucha diversión.
+            </p>
+
+            <div class="separador">🐱 💗 🐱</div>
+
+            <div class="datos-fiesta">
+                <div class="dato">
+                    <span class="icono">📅</span>
+                    <div>
+                        <strong>¿Cuándo?</strong>
+                        <p id="fecha">Sábado 24 de octubre de 2026</p>
+                    </div>
+                </div>
+
+                <div class="dato">
+                    <span class="icono">🕓</span>
+                    <div>
+                        <strong>¿A qué hora?</strong>
+                        <p id="hora">4:00 de la tarde</p>
+                    </div>
+                </div>
+
+                <div class="dato">
+                    <span class="icono">📍</span>
+                    <div>
+                        <strong>¿Dónde?</strong>
+                        <p id="lugar">Salón de fiestas</p>
+                        <p id="direccion">Escribe aquí la dirección completa</p>
+                    </div>
+                </div>
+            </div>
+
+            <a id="botonMapa" class="boton-mapa"
+               href="https://maps.google.com/"
+               target="_blank" rel="noopener noreferrer">
+                📍 Ver ubicación
+            </a>
+
+            <p class="despedida">
+                ¡Te esperamos para pasar un día increíble!
+            </p>
+
+            <div class="decoracion decoracion-abajo">💖 🐾 🎀 🐾 💖</div>
+        </section>
+
+        <footer>
+            Una celebración llena de magia, amistad y diversión ✨
+        </footer>
+    </main>
+
+    <!-- PORTADA CON CORTINAS -->
+    <section id="portada" aria-label="Portada de la invitación">
+        <div class="fondo-escenario">
+            <div class="estrellas">✦　 ✧　 ✦　 ✧　 ✦</div>
+
+            <div class="letrero">
+                <span>🎀</span>
+                <p>¡Una sorpresa<br>te espera!</p>
+                <span>🐾</span>
+            </div>
+
+            <p class="texto-portada">
+                Toca el botón para descubrir la invitación
+            </p>
+
+            <button id="abrir" type="button">
+                🎀 ¡Ver invitación! 🎀
+            </button>
+
+            <p class="texto-pequeno">¡Que comience la magia!</p>
+        </div>
+
+        <div class="cortina cortina-izquierda" aria-hidden="true">
+            <div class="pliegues"></div>
+        </div>
+
+        <div class="cortina cortina-derecha" aria-hidden="true">
+            <div class="pliegues"></div>
+        </div>
+    </section>
+
+    <!-- CONTROL DE MÚSICA -->
+    <button id="botonMusica" type="button" aria-label="Activar o silenciar música"
+            aria-pressed="false" hidden>
+        🔇
+    </button>
+
+    <!-- Coloca musica.mp3 en esta misma carpeta -->
+    <audio id="musicaFondo" loop preload="auto">
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
