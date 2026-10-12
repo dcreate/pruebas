@@ -472,3 +472,16 @@ footer {
         scroll-behavior: auto !important;
     }
 }
+/* Asegurar que la portada desaparezca al abrir */
+#portada[style*="display: none"] {
+    display: none !important;
+}
+
+/* Invitación visible detrás de la portada */
+#invitacion {
+    position: relative;
+    z-index: 1;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
