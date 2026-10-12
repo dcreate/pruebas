@@ -48,53 +48,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Abrir la invitación
-    botonAbrir.addEventListener("click", async () => {
-        if (invitacionAbierta) return;
+    
+    
+botonAbrir.addEventListener("click", () => {
+    if (invitacionAbierta) return;
 
-        invitacionAbierta = true;
-        botonAbrir.disabled = true;
+    invitacionAbierta = true;
+    botonAbrir.disabled = true;
 
-        // Iniciar la animación de apertura
-        portada.classList.add("abriendo");
+    // Abrir las cortinas
+    portada.classList.add("abriendo");
+    botonMusica.hidden = false;
 
-        // Mostrar el control de música
-        botonMusica.hidden = false;
-
-        // Intentar reproducir música tras la interacción del usuario
-        musica.volume = 0.4;
-
-        try {
-            await musica.play();
-        } catch (error) {
-            console.warn(
-                "No se pudo reproducir la música. Revisa musica.mp3.",
-                error
-            );
-        }
-
-        actualizarBotonMusica();
-
-        // Retirar la portada cuando termine la animación
-        
-window.setTimeout(() => {
-    // Retirar completamente la portada morada
-    portada.classList.remove("abriendo");
-    portada.style.display = "none";
-    portada.style.visibility = "hidden";
-    portada.style.pointerEvents = "none";
-
-    // Asegurar que la invitación quede visible
-    const invitacion = document.getElementById("invitacion");
-    invitacion.style.display = "block";
-    invitacion.style.visibility = "visible";
-    invitacion.style.opacity = "1";
-    invitacion.style.zIndex = "1";
-
-    document.body.style.overflowY = "auto";
-    window.scrollTo(0, 0);
-}, 1800);
-
+    // Iniciar la música sin bloquear la animación
+    musica.volume = 0.4;
+    musica.play().catch(error => {
+        console.warn("No se pudo reproducir la música:", error);
     });
+
+    // Quitar por completo la portada al terminar
+    setTimeout(() => {
+        portada.remove();
+        document.body.style.overflow = "auto";
+
+        // Asegurar que la invitación quede visible
+        const invitacion = document.getElementById("invitacion");
+        invitacion.style.display = "block";
+        invitacion.style.visibility = "visible";
+        invitacion.style.opacity = "1";
+    }, 1800);
+});
+
 
     // Silenciar o activar la música
     botonMusica.addEventListener("click", async () => {
