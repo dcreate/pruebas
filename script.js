@@ -75,11 +75,25 @@ document.addEventListener("DOMContentLoaded", () => {
         actualizarBotonMusica();
 
         // Retirar la portada cuando termine la animación
-        window.setTimeout(() => {
-            portada.style.display = "none";
-            document.body.style.overflowY = "auto";
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }, 1700);
+        
+window.setTimeout(() => {
+    // Retirar completamente la portada morada
+    portada.classList.remove("abriendo");
+    portada.style.display = "none";
+    portada.style.visibility = "hidden";
+    portada.style.pointerEvents = "none";
+
+    // Asegurar que la invitación quede visible
+    const invitacion = document.getElementById("invitacion");
+    invitacion.style.display = "block";
+    invitacion.style.visibility = "visible";
+    invitacion.style.opacity = "1";
+    invitacion.style.zIndex = "1";
+
+    document.body.style.overflowY = "auto";
+    window.scrollTo(0, 0);
+}, 1800);
+
     });
 
     // Silenciar o activar la música
